@@ -197,9 +197,9 @@ Gotchas:
 
 ### Favicon and app icons
 - `public/favicon.svg`: the same hexagon mark, transparent, on a 48 viewBox. It is the same colours on light and dark tab bars.
-- `pwa-192.png`, `pwa-512.png`: the mark at 72 % on a `#101416` tile with rounded corners (transparent outside).
-  `pwa-maskable-512.png`: the mark at 56 % on a full-bleed `#101416` ground, inside the 80 % safe zone Android crops to.
-  Manifest `background_color` is `#101416`.
+- `pwa-192.png`, `pwa-512.png`: the mark alone at 96 %, transparent ground.
+  `pwa-maskable-512.png`: the mark at 56 % on a full-bleed `#ffffff` ground (a launcher fills transparency with its own colour), inside the 80 % safe zone Android crops to.
+  Manifest `background_color` and `theme_color` are `#ffffff`.
 
 ### Sider menu
 - Logo row 56 tall with a bottom `border`, padding `0 20px`, so it lines up with the header.
