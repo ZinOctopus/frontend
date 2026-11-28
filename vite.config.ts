@@ -18,8 +18,9 @@ export default defineConfig({
         start_url: '/dashboard',
         scope: '/',
         display: 'standalone',
-        // The splash draws the icon over this colour; matching the icon's tile keeps it from showing as a box.
-        background_color: '#ffffff',
+        // The splash draws the icon over this colour; matching the icon's tile (its orange middle stop) keeps it from
+        // showing as a box.
+        background_color: '#f97316',
         theme_color: '#ffffff',
         // "any" icons are rounded with transparent corners (desktop installs show them as they are); the maskable one
         // is full-bleed, because Android cuts it to the launcher's own shape and baked-in corners would show gaps.

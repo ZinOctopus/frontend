@@ -1,17 +1,28 @@
-// The brand mark and lockup: Zin's octopus knocked out of a hexagon (a network node), the same drawing as
-// public/favicon.svg. The hexagon takes the brand orange; the octopus is fixed cream so it reads on the sider, the
-// sign-in page and the one-window notice in both themes.
+import { useId } from 'react'
 
-const ARMS = 'M16.5 28.5C16 33 14 33 14 36M22 29.5C21.8 33 21 34 21 37M26 29.5C26.2 33 27 34 27 37M31.5 28.5C32 33 34 33 34 36'
+// The brand mark and lockup: the Zin fox on an orange tile, the same drawing as public/favicon.svg (keep the two in
+// step). The tile and the fox are fixed colours, so the mark reads on the sider, the sign-in page and the one-window
+// notice in both themes. Each instance takes its own gradient id: marks sharing one id would break when the first
+// one is hidden.
+
+const FOX =
+  'M256 188.1L309.5 165.1L391.7 62L393.6 232L426.1 302.7L301.9 390.6L281.7 415.9L230.3 415.9L210.1 390.6L85.9 302.7L118.4 232L120.3 62L202.5 165.1ZM136.1 107.8L135 198L179.7 162.5ZM375.9 107.8L377 198L332.3 162.5ZM154.7 270.2L184.4 267.8L208.2 285.5L177.8 290.7ZM357.3 270.2L327.6 267.8L303.8 285.5L334.2 290.7Z'
+const NOSE = 'M281.7 414.4L256 448L230.3 414.4Z'
 
 export function LogoMark({ size = 40 }: { size?: number }) {
+  const gradient = useId()
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
-      <path fill="var(--brand)" d="M24 2.5L43 13.2V34.8L24 45.5L5 34.8V13.2Z" />
-      <path fill="#fff7ed" d="M14 27C13 19 17 13 24 13S35 19 34 27C33 29.6 15 29.6 14 27Z" />
-      <path d={ARMS} stroke="#fff7ed" strokeWidth={2.6} strokeLinecap="round" fill="none" />
-      <circle cx={20.3} cy={21} r={2.1} fill="var(--brand)" />
-      <circle cx={27.7} cy={21} r={2.1} fill="var(--brand)" />
+    <svg width={size} height={size} viewBox="0 0 512 512" aria-hidden="true">
+      <defs>
+        <linearGradient id={gradient} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#E8820A" />
+          <stop offset=".5" stopColor="#F97316" />
+          <stop offset="1" stopColor="#E1401B" />
+        </linearGradient>
+      </defs>
+      <rect width="512" height="512" rx="112" fill={`url(#${gradient})`} />
+      <path fill="#fff" fillRule="evenodd" d={FOX} />
+      <path fill="#16181A" d={NOSE} />
     </svg>
   )
 }

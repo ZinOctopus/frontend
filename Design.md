@@ -191,15 +191,18 @@ Gotchas:
 ## 6. Components
 
 ### Logo (`src/components/Logo.tsx`)
-- `LogoMark`: Zin's octopus knocked out of an orange hexagon (a network node). The hexagon is `brand`; the octopus is
-  fixed cream `#fff7ed` with `brand` eyes, so it reads on any ground in both themes.
+- `LogoMark`: the Zin fox on an orange tile. The tile is a rounded square (radius 112 of 512) with a vertical gradient
+  from `#E8820A` through `#F97316` to `#E1401B`. The fox is a flat white faceted head with its eyes cut out, so the
+  gradient shows through, and a `#16181A` nose. All colours are fixed, so it reads on any ground in both themes; each
+  instance takes its own gradient id.
 - `Logo`: mark + "Zin" (the "in" in `accent`). Sider uses 24 px, sign-in 40 px.
 
 ### Favicon and app icons
-- `public/favicon.svg`: the same hexagon mark, transparent, on a 48 viewBox. It is the same colours on light and dark tab bars.
-- `pwa-192.png`, `pwa-512.png`: the mark alone at 96 %, transparent ground.
-  `pwa-maskable-512.png`: the mark at 56 % on a full-bleed `#ffffff` ground (a launcher fills transparency with its own colour), inside the 80 % safe zone Android crops to.
-  Manifest `background_color` and `theme_color` are `#ffffff`.
+- `public/favicon.svg`: the same tile and fox on a 512 viewBox. The tile is opaque, so one file reads on light and dark tab bars.
+- `pwa-192.png`, `pwa-512.png`: the same icon as it is, with transparent corners.
+  `pwa-maskable-512.png`: a full-bleed gradient (no rounded corners, because a launcher cuts its own shape) with the fox at 84 %
+  of its size, so the ear tips stay inside the 80 % safe zone Android crops to.
+  Manifest `background_color` is `#f97316`, the tile's middle stop, so the splash never shows the icon as a box; `theme_color` is `#ffffff`.
 
 ### Sider menu
 - Logo row 56 tall with a bottom `border`, padding `0 20px`, so it lines up with the header.
